@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindCare - Поддержка психического здоровья студентов</title>
+    <meta name="description" content="Платформа для поддержки психического здоровья студентов с инструментами самопомощи, конфиденциальной диагностикой и базой контактов специалистов">
+    <meta name="keywords" content="психическое здоровье, студенты, стресс, выгорание, самопомощь, психологическая помощь">
+    <meta name="author" content="MindCare">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mindcare.example.com">
+    <meta property="og:title" content="MindCare - Поддержка психического здоровья студентов">
+    <meta property="og:description" content="Инструменты самопомощи, анонимные тесты и контакты психологической поддержки для студентов">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="MindCare - Поддержка психического здоровья студентов">
+    <meta name="twitter:description" content="Инструменты самопомощи, анонимные тесты и контакты психологической поддержки для студентов">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#8AA2A9">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="assets/images/логотип.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="assets/images/логотип.jpg">
+    <link rel="apple-touch-icon" href="assets/images/логотип.jpg">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/blocks/imports.css">
+    <link rel="stylesheet" href="css/bem-components.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/images.css">
+    <link rel="stylesheet" href="css/notification.css">
+    <link rel="stylesheet" href="css/readability.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- No-JS fallback -->
+    <noscript>
+        <style>
+            .page__js-warning {
+                display: block !important;
+                background: #D4A574;
+                color: white;
+                padding: 1rem;
+                text-align: center;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 9999;
+            }
+        </style>
+    </noscript>
+</head>
+<body class="page">
+    <!-- No-JS Warning -->
+    <div class="page__js-warning" style="display: none;">
+        ⚠️ Для полной функциональности сайта включите JavaScript в настройках браузера
+    </div>
+
+    <!-- БЛОК: header (шапка сайта) -->
+    <header class="header">
+        <div class="header__container container">
+            <!-- Логотип (приводим к тому же виду, что и на внутренних страницах) -->
+            <!-- // Updated: используем одинаковую структуру header, как на других страницах -->
+            <a href="index.html" class="header__logo">
+                <img src="assets/images/логотип.jpg" alt="MindCare" class="header__logo-icon" loading="eager" onerror="this.style.display='none';">
+                <span class="header__logo-text">MindCare</span>
+            </a>
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+                    <!-- // Updated: разметка меню полностью совпадает с внутренними страницами, активный пункт — «Главная» -->
+                    <li class="header__nav-item"><a href="index.html" class="header__nav-link header__nav-link--active">Главная</a></li>
+                    <li class="header__nav-item"><a href="pages/articles.html" class="header__nav-link">Статьи</a></li>
+                    <li class="header__nav-item"><a href="pages/tests.html" class="header__nav-link">Тесты</a></li>
+                    <li class="header__nav-item"><a href="pages/mood-tracker.html" class="header__nav-link">Дневник настроения</a></li>
+                    <li class="header__nav-item"><a href="pages/exercises.html" class="header__nav-link">Упражнения</a></li>
+                    <li class="header__nav-item"><a href="pages/contacts.html" class="header__nav-link">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="header__actions">
+            </div>
+            <button class="header__menu-toggle" id="menuToggle" aria-label="Открыть меню">
+                <span class="header__menu-icon"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- БЛОК: main-hero (главный экран) -->
+    <section class="main-hero" aria-labelledby="heroTitle">
+        <div class="main-hero__content">
+            <h1 class="main-hero__title" id="heroTitle">
+                Психологические трудности — обычная часть студенческой жизни
+            </h1>
+
+            <p class="main-hero__text">
+                Здесь собраны простые инструменты для самостоятельной работы, анонимные тесты и контакты специалистов, к которым можно обратиться. Всё хранится только у вас на устройстве, без передачи данных куда-либо.
+            </p>
+
+            <p class="main-hero__text main-hero__text--secondary">
+                Когда учёба становится слишком тяжёлой, хочется найти место, где можно просто вздохнуть свободно. Мы сделали этот сайт для тех, кто хочет научиться справляться с тревогой и стрессом. Здесь есть дыхательные упражнения, полезные статьи и возможность следить за своим настроением через простой дневник.
+            </p>
+        </div>
+
+        <div class="main-hero__image">
+            <img src="assets/images/главная страница.jpg" alt="Психологическое здоровье студентов" class="main-hero__image-img" loading="eager">
+        </div>
+    </section>
+
+    <!-- БЛОК: main (основной контент) -->
+    <main class="main" id="main">
+        <div class="container">
+
+            <!-- БЛОК: articles-preview (превью статей) -->
+            <section class="articles-preview" aria-labelledby="articlesTitle">
+                <header class="articles-preview__header">
+                    <h2 class="articles-preview__title" id="articlesTitle">Статьи, которые могут помочь</h2>
+                    <p class="articles-preview__subtitle">
+                        Материалы о том, как справляться с учебным стрессом, тревогой и другими трудностями
+                    </p>
+                    <a href="pages/articles.html" class="articles-preview__link-all">
+                        Все статьи
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                        </svg>
+                    </a>
+                </header>
+
+                <div class="articles-preview__grid">
+                    <!-- Статья 1 -->
+                    <article class="article-card" data-category="stress">
+                        <div class="article-card__image">
+                            <img src="assets/images/фон для статьи 1.jpg"
+                                 alt="Студент делает перерыв во время учебы"
+                                 loading="lazy"
+                                 width="400"
+                                 height="200">
+                        </div>
+                        <div class="article-card__content">
+                            <span class="article-card__category" aria-label="Категория: Стресс">Стресс</span>
+                            <h3 class="article-card__title">
+                                <a href="pages/articles.html" class="article-card__title-link">
+                                    Как справляться со стрессом во время сессии
+                                </a>
+                            </h3>
+                            <p class="article-card__excerpt">
+                                Практические стратегии управления стрессом в период экзаменов и зачетов.
+                                Узнайте, как сохранять спокойствие и эффективность...
+                            </p>
+                            <!-- Added: расширенный текст-анонс статьи с ключевыми идеями -->
+                            <div class="article-card__text-expanded">
+                                <h4 class="article-card__subtitle">О чем эта статья</h4>
+                                <ul class="article-card__fact-list">
+                                    <li class="article-card__fact-item"><strong>Пошаговый план подготовки</strong> к сессии без ощущения хаоса.</li>
+                                    <li class="article-card__fact-item">Простые дыхательные техники, которые можно делать прямо перед экзаменом.</li>
+                                    <li class="article-card__fact-item">Советы, как не сравнивать себя с другими и не загонять себя в чувство вины.</li>
+                                </ul>
+                            </div>
+                            <div class="article-card__meta">
+                                <time class="article-card__date" datetime="2025-01-15">15 января 2025</time>
+                                <span class="article-card__read-time" aria-label="Время чтения: 5 минут">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                                    </svg>
+                                    5 мин
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Статья 2 -->
+                    <article class="article-card" data-category="burnout">
+                        <div class="article-card__image">
+                            <img src="assets/images/фон для статьи 2.jpg"
+                                 alt="Уставший студент за компьютером"
+                                 loading="lazy"
+                                 width="400"
+                                 height="200">
+                        </div>
+                        <div class="article-card__content">
+                            <span class="article-card__category" aria-label="Категория: Выгорание">Выгорание</span>
+                            <h3 class="article-card__title">
+                                <a href="pages/articles.html" class="article-card__title-link">
+                                    Признаки учебного выгорания и что с этим делать
+                                </a>
+                            </h3>
+                            <p class="article-card__excerpt">
+                                Как распознать выгорание на ранней стадии и предотвратить его развитие.
+                                Простые шаги для восстановления энергии...
+                            </p>
+                            <!-- Added: расширенный блок с преимуществами статьи о выгорании -->
+                            <div class="article-card__text-expanded">
+                                <h4 class="article-card__subtitle">Почему стоит прочитать</h4>
+                                <ol class="article-card__fact-list">
+                                    <li class="article-card__fact-item">Научитесь замечать <strong>ранние признаки выгорания</strong>, пока еще есть ресурс что‑то изменить.</li>
+                                    <li class="article-card__fact-item">Получите готовый чек-лист маленьких шагов для восстановления сил.</li>
+                                    <li class="article-card__fact-item">Поймете, почему отдых — это не лень, а необходимая часть продуктивности.</li>
+                                </ol>
+                            </div>
+                            <div class="article-card__meta">
+                                <time class="article-card__date" datetime="2025-01-10">10 января 2025</time>
+                                <span class="article-card__read-time" aria-label="Время чтения: 7 минут">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                                    </svg>
+                                    7 мин
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Статья 3 -->
+                    <article class="article-card" data-category="myths">
+                        <div class="article-card__image">
+                            <img src="assets/images/фон для статьи 3.jpg"
+                                 alt="Люди обсуждают психологическое здоровье"
+                                 loading="lazy"
+                                 width="400"
+                                 height="200">
+                        </div>
+                        <div class="article-card__content">
+                            <span class="article-card__category" aria-label="Категория: Мифы">Мифы</span>
+                            <h3 class="article-card__title">
+                                <a href="pages/articles.html" class="article-card__title-link">
+                                    Мифы и факты о психологическом здоровье
+                                </a>
+                            </h3>
+                            <p class="article-card__excerpt">
+                                Разбираем самые распространенные мифы о психическом здоровье
+                                и заменяем их научными фактами...
+                            </p>
+                            <!-- Added: расширенный engaging-блок с примерами мифов и фактов -->
+                            <div class="article-card__text-expanded">
+                                <h4 class="article-card__subtitle">Мифы, о которых мы говорим</h4>
+                                <ul class="article-card__fact-list">
+                                    <li class="article-card__fact-item">«К психологу ходят только те, у кого всё совсем плохо» — <strong>разбираем, почему это не так</strong>.</li>
+                                    <li class="article-card__fact-item">«Если улыбаешься — значит, проблем нет» — обсуждаем, как люди скрывают тревогу и выгорание.</li>
+                                    <li class="article-card__fact-item">«Надо просто взять себя в руки» — показываем, чем такой совет опасен.</li>
+                                </ul>
+                                <p class="article-card__quote">
+                                    «Забота о психическом здоровье — это не слабость, а такой же навык, как забота о физическом».
+                                </p>
+                            </div>
+                            <div class="article-card__meta">
+                                <time class="article-card__date" datetime="2025-01-05">5 января 2025</time>
+                                <span class="article-card__read-time" aria-label="Время чтения: 6 минут">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                                    </svg>
+                                    6 мин
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- БЛОК: welcome-section (приветственная секция) -->
+<section class="welcome-section" aria-labelledby="welcomeTitle">
+    <div class="welcome-section__frame container">
+        <div class="welcome-section__layout">
+            <!-- Левая колонка: заголовок + картинка -->
+            <div class="welcome-section__left">
+                <h2 class="welcome-section__title" id="welcomeTitle">Добро пожаловать на MindCare</h2>
+                <div class="welcome-section__image-wrapper">
+                    <img src="assets/images/добро пожаловать.jpg" alt="Иллюстрация поддержки психического здоровья" class="welcome-section__image" loading="lazy">
+                </div>
+            </div>
+            
+            <!-- Правая колонка: текст -->
+            <div class="welcome-section__right">
+                <div class="welcome-section__text">
+                    <p>
+                        Студенческая жизнь — это как американские горки: то взлеты от новых открытий,
+                        то падения от бесконечных дедлайнов. Экзамены, новые знакомства, мысли о будущем...
+                        Всё это может накапливаться и превращаться в постоянное напряжение. И знаете что?
+                        Это совершенно нормально переживать такие моменты.
+                    </p>
+                    <p>
+                        Мы часто слышим от студентов, что они чувствуют себя вымотанными: то ли от сессии,
+                        то ли от бесконечных заданий, то ли просто от того, что не знают, куда идти дальше.
+                        Многие стесняются говорить об этом — боятся показаться слабыми или просто не знают,
+                        куда можно обратиться за помощью.
+                    </p>
+                    <p>
+                        Мы сделали этот сайт, чтобы у каждого студента было место, где можно разобраться
+                        в своих чувствах, научиться простым техникам для снятия стресса и найти контакты
+                        специалистов, если нужна более серьезная помощь. Всё анонимно и бесплатно.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+            <!-- БЛОК: stats (статистика) -->
+            <section class="stats" aria-labelledby="statsTitle">
+                <div class="stats__container">
+                    <h2 class="stats__title" id="statsTitle">Это касается многих</h2>
+                    <p class="stats__subtitle">
+                        Студенческая жизнь — это не только лекции и экзамены, но и постоянное эмоциональное напряжение
+                    </p>
+                    
+                    <div class="stats__grid">
+                        <div class="stats__item">
+                            <div class="stats__number" aria-label="75 процентов">75%</div>
+                            <div class="stats__description">
+                                студентов испытывают значительный стресс во время учебы
+                            </div>
+                        </div>
+                        
+                        <div class="stats__item">
+                            <div class="stats__number" aria-label="40 процентов">40%</div>
+                            <div class="stats__description">
+                                студентов сталкиваются с симптомами выгорания
+                            </div>
+                        </div>
+                        
+                        <div class="stats__item">
+                            <div class="stats__number" aria-label="60 процентов">60%</div>
+                            <div class="stats__description">
+                                студентов не обращаются за помощью из-за стигмы
+                            </div>
+                        </div>
+                        
+                        <div class="stats__item">
+                            <div class="stats__number" aria-label="90 процентов">90%</div>
+                            <div class="stats__description">
+                                студентов отмечают улучшение состояния после использования техник самопомощи
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Секция конфиденциальности -->
+            <section class="privacy" aria-labelledby="privacyTitle">
+                <div class="privacy__container">
+                    <div class="privacy__content">
+                        <h2 class="privacy__title" id="privacyTitle">Ваша приватность на первом месте</h2>
+
+                        <div class="privacy__cards">
+                            <div class="privacy__card">
+                                <svg class="privacy__card-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+                                </svg>
+                                <h3 class="privacy__card-title">Всё остаётся у вас</h3>
+                                <p class="privacy__card-text">
+                                    Результаты тестов, записи в дневнике и история упражнений — всё это
+                                    хранится только на вашем устройстве. Никаких серверов, никаких передач данных.
+                                </p>
+                            </div>
+
+                            <div class="privacy__card">
+                                <svg class="privacy__card-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M12 17c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm6-9h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM8.9 6c0-1.71 1.39-3.1 3.1-3.1s3.1 1.39 3.1 3.1v2H8.9V6z"/>
+                                </svg>
+                                <h3 class="privacy__card-title">Анонимность</h3>
+                                <p class="privacy__card-text">
+                                    Никакой регистрации, никаких email или телефонов. Просто приходите
+                                    и используйте всё, что нужно, без каких-либо следов.
+                                </p>
+                            </div>
+
+                            <div class="privacy__card">
+                                <svg class="privacy__card-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/>
+                                </svg>
+                                <h3 class="privacy__card-title">Вы хозяин своих данных</h3>
+                                <p class="privacy__card-text">
+                                    Захотели удалить всё? Легко — есть настройки для полной очистки.
+                                    Всё лежит в вашем браузере, и только вы решаете, что с этим делать.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- БЛОК: footer (подвал) -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer__container container">
+            <div class="footer__main">
+                <p class="footer__text">
+                    2025 год. Кострицкая Дарья 301ЭФ. Здесь вы найдете материалы для самостоятельной работы,
+                            но это <strong>не замена</strong> профессиональной помощи врача или психолога.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно для экстренной помощи -->
+    <div class="modal modal--emergency" id="emergencyModal" role="dialog" aria-labelledby="emergencyModalTitle" aria-modal="true" hidden>
+        <div class="modal__overlay" data-modal-close></div>
+        <div class="modal__container">
+            <div class="modal__header">
+                <h2 class="modal__title" id="emergencyModalTitle">🚨 Экстренная помощь</h2>
+                <button class="modal__close" id="closeEmergencyModal" data-modal-close aria-label="Закрыть">×</button>
+            </div>
+            
+            <div class="modal__body">
+                <div class="emergency-contacts" id="emergencyContactsList">
+                    <div class="emergency-contact">
+                        <h3 class="emergency-contact__title">Телефон доверия</h3>
+                        <a href="tel:88002000122" class="emergency-contact__phone">📞 8-800-2000-122</a>
+                        <p class="emergency-contact__description">Бесплатная психологическая помощь (круглосуточно)</p>
+                    </div>
+                    <div class="emergency-contact">
+                        <h3 class="emergency-contact__title">Телефон доверия для студентов</h3>
+                        <a href="tel:88002004747" class="emergency-contact__phone">📞 8-800-200-47-47</a>
+                        <p class="emergency-contact__description">Бесплатная психологическая помощь студентам</p>
+                    </div>
+                    <div class="emergency-contact">
+                        <h3 class="emergency-contact__title">Телефон доверия Приднестровья</h3>
+                        <a href="tel:080022222" class="emergency-contact__phone">📞 0-800-2-22-22</a>
+                        <p class="emergency-contact__description">Круглосуточная психологическая помощь в ПМР</p>
+                    </div>
+                    <div class="emergency-contact">
+                        <h3 class="emergency-contact__title">Экстренные службы ПМР</h3>
+                        <a href="tel:112" class="emergency-contact__phone">📞 112</a>
+                        <p class="emergency-contact__description">Единый номер экстренных служб</p>
+                    </div>
+                </div>
+                <div class="emergency-actions">
+                    <button class="emergency-action" data-quick-exit>🚪 Быстрый выход с сайта</button>
+                    <a href="pages/contacts.html" class="emergency-action">📋 Все контакты поддержки</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно конфиденциальности -->
+    <div class="modal modal--privacy" id="privacyModal" role="dialog" aria-labelledby="privacyModalTitle" aria-modal="true" hidden>
+        <div class="modal__overlay" data-modal-close></div>
+        <div class="modal__container">
+            <div class="modal__header">
+                <h2 class="modal__title" id="privacyModalTitle">Конфиденциальность</h2>
+                <button class="modal__close" data-modal-close aria-label="Закрыть">×</button>
+            </div>
+            <div class="modal__body">
+                <p>Все данные хранятся только в вашем браузере:</p>
+                <ul>
+                    <li>Результаты тестов сохраняются в localStorage</li>
+                    <li>Записи дневника настроения хранятся локально</li>
+                    <li>История упражнений сохраняется на вашем устройстве</li>
+                    <li>Никакие данные не отправляются на сервер</li>
+                    <li>Не требуется регистрация или личные данные</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Фиксированные кнопки: fallback-разметка на случай, если JS не создаст их сам -->
+    <div class="site-controls site-controls--inline">
+        <button class="site-controls__btn site-controls__btn--scroll-top" aria-label="Наверх" title="Наверх">
+            <span class="site-controls__btn-icon">↑</span>
+        </button>
+        <button class="site-controls__btn site-controls__btn--emergency" aria-label="Экстренная помощь" title="Экстренная помощь" data-emergency-help>
+            <span class="site-controls__btn-icon">🚨</span>
+        </button>
+        <button class="site-controls__btn site-controls__btn--exit" aria-label="Быстрый выход" title="Быстрый выход (Shift + Escape)" data-quick-exit>
+            <span class="site-controls__btn-icon">🚪</span>
+        </button>
+    </div>
+
+    <!-- Скрипты -->
+    <script src="js/utils.js"></script>
+    <script src="js/site-controls.js"></script>
+    <script src="js/main.js" type="module"></script>
+    
+    <!-- Инициализация модальных окон и функций страницы -->
+    <script>
+        // Инициализация модальных окон
+        function initModals() {
+            // Открытие модального окна экстренной помощи
+            const emergencyBtn = document.getElementById('footerEmergencyBtn');
+            if (emergencyBtn) {
+                emergencyBtn.addEventListener('click', function() {
+                    const modal = document.getElementById('emergencyModal');
+                    if (modal) {
+                        modal.hidden = false;
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            }
+            
+            // Закрытие модальных окон
+            document.querySelectorAll('[data-modal-close]').forEach(element => {
+                element.addEventListener('click', function(e) {
+                    const modal = this.closest('.modal');
+                    if (modal && (e.target === this || this.classList.contains('modal__close'))) {
+                        modal.hidden = true;
+                        document.body.style.overflow = '';
+                    }
+                });
+            });
+            
+            // Закрытие по Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    document.querySelectorAll('.modal:not([hidden])').forEach(modal => {
+                        modal.hidden = true;
+                        document.body.style.overflow = '';
+                    });
+                }
+            });
+        }
+        
+        // Показ модального окна конфиденциальности
+        function showPrivacyModal() {
+            const modal = document.getElementById('privacyModal');
+            if (modal) {
+                modal.hidden = false;
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        
+        // Показ модального окна условий использования
+        function showTermsModal() {
+            alert('Условия использования:\n\n1. Этот ресурс предназначен для информационных целей\n2. Не заменяет профессиональную медицинскую помощь\n3. Все данные хранятся локально\n4. Использование на ваш страх и риск');
+        }
+        
+        // Очистка всех данных пользователя
+        function clearAllData() {
+            if (confirm('Вы уверены, что хотите удалить все ваши данные (тесты, записи настроения, историю упражнений)? Это действие нельзя отменить.')) {
+                localStorage.clear();
+                alert('Все ваши данные удалены. Страница будет перезагружена.');
+                location.reload();
+            }
+        }
+        
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            initModals();
+        });
+    </script>
+</body>
+</html>
